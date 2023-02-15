@@ -32,7 +32,7 @@ check_venv(){
   [ -d venv ] && . venv/bin/activate || setup_venv
 }
 
-setup_pip(){
+install_reqs(){
   pip install -qr requirements.txt
 }
 
@@ -50,7 +50,7 @@ print_info(){
 
 setup_demo(){
   check_venv
-  setup_pip
+  install_reqs
   print_info
 }
 
