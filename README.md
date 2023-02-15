@@ -30,7 +30,10 @@ oc apply -f openshift
 - Telemetry in logs makes me uncomfortable
 - Improve microservice design
   - Avoid building nginx in container
-  - 
+- Simplify container build
+- Database REQUIRES postgres
+- TODO: Use s2i source to build container
+
 ## Links
 - https://github.com/heartexlabs/label-studio
 - https://github.com/opendatahub-io-contrib/label-studio-integration

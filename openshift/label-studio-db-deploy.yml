@@ -11,7 +11,7 @@ metadata:
     template: postgresql-persistent-template
     template.openshift.io/template-instance-owner: 84530ce1-22cb-411e-b4f1-d297468b0153
   name: label-studio-db
-  spec:
+spec:
   replicas: 1
   selector:
     matchLabels:
