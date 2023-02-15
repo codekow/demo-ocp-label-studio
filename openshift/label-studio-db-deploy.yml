@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
+    deployment.kubernetes.io/revision: "2"
+    image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"postgresql:12","namespace":"openshift"},"fieldPath":"spec.template.spec.containers[?(@.name==\"postgresql\")].image","pause":"true"}]'
     template.alpha.openshift.io/wait-for-ready: "true"
   labels:
     app: label-studio
@@ -9,7 +11,7 @@ metadata:
     template: postgresql-persistent-template
     template.openshift.io/template-instance-owner: 84530ce1-22cb-411e-b4f1-d297468b0153
   name: label-studio-db
-spec:
+  spec:
   replicas: 1
   selector:
     matchLabels:
@@ -43,7 +45,7 @@ spec:
             secretKeyRef:
               key: database-password
               name: label-studio-db
-        image: openshift/postgresql:10
+        image: image-registry.openshift-image-registry.svc:5000/openshift/postgresql:12
         livenessProbe:
           exec:
             command:
@@ -78,15 +80,3 @@ spec:
       - name: label-studio-db-data
         persistentVolumeClaim:
           claimName: label-studio-db
-  triggers:
-  - imageChangeParams:
-      automatic: true
-      containerNames:
-      - postgresql
-      from:
-        kind: ImageStreamTag
-        name: postgresql:10-el8
-        namespace: openshift
-      lastTriggeredImage: image-registry.openshift-image-registry.svc:5000/openshift/postgresql@sha256:1d89de24e9c9ab6245b3ce0a6da28e8b5c930c5e8b877c9bc4df91bb7cbf6389
-    type: ImageChange
-  - type: ConfigChange
