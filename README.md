@@ -4,12 +4,25 @@ Explore and demo label-studio on OpenShift
 
 ## Quick Start
 
-```
-  # activate python virtual env (bash)
-  source venv/bin/activate
 
-  # start label-studio
-  label-studio
+Local Dev
+
+```
+# activate python virtual env (bash)
+source venv/bin/activate
+
+# start label-studio
+label-studio
+```
+
+OpenShift
+
+```
+# create project for label-studio
+oc new-project label-studio
+
+# deploy all the things
+oc apply -f openshift
 ```
 
 ## Links
