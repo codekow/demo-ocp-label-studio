@@ -13,12 +13,11 @@ metadata:
     app.kubernetes.io/part-of: label-studio
   name: label-studio
 spec:
-  progressDeadlineSeconds: 600
   replicas: 1
-  revisionHistoryLimit: 10
   selector:
     matchLabels:
       app: label-studio
+      deployment: label-studio
   strategy:
     type: Recreate
   template:
