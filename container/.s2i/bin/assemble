@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# insert secret code sause for OS based depends
+
+download_artifacts(){
+  echo "Downloading artifact..."
+}
+
+assemble_s2i_default(){
+  ${STI_SCRIPTS_PATH}/assemble
+}
+
+download_artifacts
+assemble_s2i_default
