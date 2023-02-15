@@ -1,7 +1,6 @@
 FROM registry.access.redhat.com/ubi8/python-39
 
-ENV LS_DIR=/opt/app-root/src \
-    PIP_CACHE_DIR=$HOME/.cache
+ENV LS_DIR=/opt/app-root/src
 
 WORKDIR ${LS_DIR}
 
