@@ -22,7 +22,14 @@ OpenShift
 oc new-project label-studio
 
 # deploy all the things
-oc apply -f openshift
+oc apply -f openshift/dump
+```
+
+```
+oc new-app https://github.com/redhat-na-ssa/demo-ocp-label-studio.git \
+  --name ocp-label-studio \
+  --strategy source \
+  --context-dir container
 ```
 
 ## Notes
