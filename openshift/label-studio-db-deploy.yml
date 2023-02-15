@@ -43,7 +43,7 @@ spec:
             secretKeyRef:
               key: database-password
               name: label-studio-db
-        image: image-registry.openshift-image-registry.svc:5000/openshift/postgresql@sha256:1d89de24e9c9ab6245b3ce0a6da28e8b5c930c5e8b877c9bc4df91bb7cbf6389
+        image: openshift/postgresql:10
         livenessProbe:
           exec:
             command:

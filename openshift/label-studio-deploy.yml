@@ -57,7 +57,7 @@ spec:
           value: "1"
         - name: POSTGRE_USER
           value: postgres
-        image: image-registry.openshift-image-registry.svc:5000/sandbox/label-studio@sha256:474e3bdd1d33170a72bd069266fc88ae8c723956b373131a37d3671f7e3f3328
+        image: label-studio:ubi_latest
         imagePullPolicy: Always
         name: label-studio
         resources:
