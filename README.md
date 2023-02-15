@@ -27,7 +27,7 @@ oc new-app https://github.com/redhat-na-ssa/demo-ocp-label-studio.git \
   --strategy source \
   --context-dir container
 
-oc expose "${APP_NAME}"
+oc expose svc "${APP_NAME}"
 ```
 
 ## Notes
