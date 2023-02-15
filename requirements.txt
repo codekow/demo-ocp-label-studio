@@ -1,2 +1,1 @@
-label-studio
-psycopg2-binary
+container/requirements.txt
