@@ -28,13 +28,5 @@ spec:
       uri: 'https://github.com/redhat-na-ssa/demo-ocp-label-studio.git'
     contextDir: /container
   triggers:
-    - type: Generic
-      generic:
-        secretReference:
-          name: label-studio-generic-webhook-secret
-    - type: GitHub
-      github:
-        secretReference:
-          name: label-studio-github-webhook-secret
     - type: ConfigChange
   runPolicy: Serial

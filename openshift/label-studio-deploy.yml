@@ -20,10 +20,7 @@ spec:
     matchLabels:
       app: label-studio
   strategy:
-    rollingUpdate:
-      maxSurge: 25%
-      maxUnavailable: 25%
-    type: RollingUpdate
+    type: Recreate
   template:
     metadata:
       labels:
@@ -58,7 +55,6 @@ spec:
         - name: POSTGRE_USER
           value: postgres
         image: label-studio:s2i
-        imagePullPolicy: Always
         name: label-studio
         resources:
           limits:
