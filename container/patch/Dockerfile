@@ -8,13 +8,14 @@ RUN pip install --no-cache -U \
 
 # fix: permission issues
 
-# fix: needed for ocp
+# fix: needed to address data writes
 # recommend: chmod g+rw id=0 for writeable areas in image 
 # RUN mkdir -p /label-studio/.local && \
 #     chmod g+rw \
 #       /label-studio/data \
 #       /label-studio/.local
 
+# fix: remove path that is a volume
 RUN rm -rf /label-studio/data
 
 # fix: add volumes
