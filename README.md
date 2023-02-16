@@ -2,8 +2,26 @@
 
 Explore and demo label-studio on OpenShift
 
-## Quick Start
+## Usage
 
+
+### Quick Start
+
+```
+# create project for label-studio
+oc new-project label-studio-source
+
+APP_NAME=label-studio-patch
+oc new-app https://github.com/redhat-na-ssa/demo-ocp-label-studio.git \
+  --name "${APP_NAME}" \
+  --strategy docker \
+  --context-dir container/patch
+
+oc expose service \
+  "${APP_NAME}" \
+  --port 8080 \
+  --overrides='{"spec":{"tls":{"termination":"edge"}}}'
+```
 
 ### Local Dev
 
