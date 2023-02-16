@@ -10,10 +10,12 @@ RUN pip install --no-cache -U \
 
 # fix: needed for ocp
 # recommend: chmod g+rw id=0 for writeable areas in image 
-RUN mkdir -p /label-studio/.local && \
-    chmod g+rw \
-      /label-studio/data \
-      /label-studio/.local
+# RUN mkdir -p /label-studio/.local && \
+#     chmod g+rw \
+#       /label-studio/data \
+#       /label-studio/.local
+
+RUN rm -rf /label-studio/data
 
 # fix: add volumes
 VOLUME /label-studio/.local
