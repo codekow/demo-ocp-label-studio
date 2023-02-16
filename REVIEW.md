@@ -1,7 +1,9 @@
 # Technical Notes
 
 ## Notes
-- Not sure if this will run in offline mode
+- Container crashes out of the box
+  - Permission denied: '/label-studio/.local'
+- Not sure how it will run in `offline` mode
 - Telemetry in logs makes me uncomfortable
 - Improve microservice design
   - Avoid: building nginx in container
@@ -18,4 +20,5 @@
   - [current](https://labelstud.io/guide/storedata.html#PostgreSQL-database)
 
 ## TODO
+- [] Patch public container to work out of the box
 - [x] Use s2i source to build container
