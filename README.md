@@ -9,7 +9,7 @@ Explore and demo label-studio on OpenShift
 
 ```
 # create project for label-studio
-oc new-project label-studio-source
+oc new-project label-studio
 
 APP_NAME=label-studio-patch
 oc new-app https://github.com/redhat-na-ssa/demo-ocp-label-studio.git \
