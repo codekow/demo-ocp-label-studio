@@ -5,7 +5,7 @@ Explore and demo label-studio on OpenShift
 ## Quick Start
 
 
-Local Dev
+### Local Dev
 
 ```
 # activate python virtual env (bash)
@@ -15,38 +15,55 @@ source venv/bin/activate
 label-studio
 ```
 
-OpenShift
+### OpenShift
+
+New Project for testing
 
 ```
 # create project for label-studio
 oc new-project label-studio-source
-
-APP_NAME=ocp-label-studio
-oc new-app https://github.com/redhat-na-ssa/demo-ocp-label-studio.git \
-  --name "${APP_NAME}" \
-  --strategy source \
-  --context-dir container/s2i
-
-oc expose svc "${APP_NAME}"
 ```
 
-```
-APP_NAME=ocp-label-studio-docker
-oc new-app https://github.com/redhat-na-ssa/demo-ocp-label-studio.git \
-  --name "${APP_NAME}" \
-  --strategy docker \
-  --context-dir container/s2i
-```
+Source to Image (s2i): strategy `docker` to [patch](container/patch) public image
 
 ```
-APP_NAME=ocp-label-studio-patch
+APP_NAME=label-studio-patch
 oc new-app https://github.com/redhat-na-ssa/demo-ocp-label-studio.git \
   --name "${APP_NAME}" \
   --strategy docker \
   --context-dir container/patch
 ```
 
+Source to Image (s2i): strategy `source`
+
+```
+APP_NAME=label-studio-s2i-source
+oc new-app https://github.com/redhat-na-ssa/demo-ocp-label-studio.git \
+  --name "${APP_NAME}" \
+  --strategy source \
+  --context-dir container/s2i
+```
+
+Source to Image (s2i): strategy `docker`
+
+```
+APP_NAME=label-studio-s2i-docker
+oc new-app https://github.com/redhat-na-ssa/demo-ocp-label-studio.git \
+  --name "${APP_NAME}" \
+  --strategy docker \
+  --context-dir container/s2i
+```
+
+Expose via route in OpenShift (repeat as needed)
+
+```
+oc expose service \
+  "${APP_NAME}" \
+  --port 8080 \
+  --overrides='{"spec":{"tls":{"termination":"edge"}}}'
+  ```
 
 ## Links
-- https://github.com/heartexlabs/label-studio
-- https://github.com/opendatahub-io-contrib/label-studio-integration
+- [Review / To Do](REVIEW.md)
+- [GitHub - Label Studio](https://github.com/heartexlabs/label-studio)
+- [opendatahub-io-contrib/label-studio](https://github.com/opendatahub-io-contrib/label-studio-integration) - NOT working
