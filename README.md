@@ -66,4 +66,10 @@ oc expose service \
 ## Links
 - [Review / To Do](REVIEW.md)
 - [GitHub - Label Studio](https://github.com/heartexlabs/label-studio)
+- [Demo: Label Studio on OpenShift](https://github.com/rh-intelligent-application-practice/labelstudio-openshift-deploy)
+- [atef23/labelstudio-openshift-deploy](https://github.com/atef23/labelstudio-openshift-deploy)
 - [opendatahub-io-contrib/label-studio](https://github.com/opendatahub-io-contrib/label-studio-integration) - NOT working
+
+## MLOps CoP Links
+- [Label Studio - Presentation](https://docs.google.com/presentation/d/1bH-JYQmxIkxlug6N6yDqojKDC7XVE7HD5uxyZ7VEO-s)
+- [Label Studio - Recording](https://drive.google.com/file/d/1USf9kzuAIjviqeB6f56c4SGIyMmXovkT/)
