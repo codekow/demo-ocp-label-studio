@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: label-studio
+  annotations:
+    alpha.image.policy.openshift.io/resolve-names: '*'
+    app.openshift.io/route-disabled: "false"
+    app.openshift.io/vcs-ref: openshift
+    app.openshift.io/vcs-uri: https://github.com/redhat-na-ssa/demo-ocp-label-studio.git
+    image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"label-studio:latest","namespace":"label-studio"},"fieldPath":"spec.template.spec.containers[?(@.name==\"label-studio\")].image","pause":"false"}]'
+  labels:
+    app: label-studio
+    app.kubernetes.io/component: label-studio
+    app.kubernetes.io/instance: label-studio
+    app.kubernetes.io/name: label-studio
+    app.kubernetes.io/part-of: label-studio
+    app.openshift.io/runtime: python
+    app.openshift.io/runtime-version: 3.9-ubi8
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: label-studio
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: label-studio
+        deployment: label-studio
+    spec:
+      containers:
+      - image: image-registry.openshift-image-registry.svc:5000/label-studio/label-studio:latest
+        name: label-studio
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        resources: {}
+        volumeMounts:
+        - name: label-studio-data
+          mountPath: /opt/app-root/src
+      volumes:
+        - name: empty
+          emptyDir: {}
+        - name: label-studio-data
+          persistentVolumeClaim:
+            claimName: label-studio-data
+          
+
