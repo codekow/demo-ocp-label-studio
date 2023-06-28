@@ -20,3 +20,6 @@
 #PIP_INDEX_URL=https://<userid>:<token>@nexus-repo.example.com/repository/pypi-proxy/simple
 
 UPGRADE_PIP_TO_LATEST=true
+
+# label studio env
+# LABEL_STUDIO_BASE_DATA_DIR=/opt/app-root/src
