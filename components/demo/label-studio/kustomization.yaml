@@ -5,11 +5,13 @@ kind: Component
 #   app: label-studio
 
 resources:
-- bc.yaml
+- bc-patch.yaml
+- bc-s2i.yaml
 - db-deploy.yaml
 - db-pvc.yaml
 - db-secret.yaml
 - db-svc.yaml
+# - deploy-patch.yaml
 - deploy.yaml
 - is.yaml
 - pvc.yaml

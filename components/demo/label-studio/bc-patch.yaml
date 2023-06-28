@@ -1,7 +1,7 @@
 apiVersion: build.openshift.io/v1
 kind: BuildConfig
 metadata:
-  name: label-studio-build
+  name: label-studio-patch
   annotations:
     app.openshift.io/vcs-ref: main
     app.openshift.io/vcs-uri: https://github.com/redhat-na-ssa/demo-ocp-label-studio.git
@@ -17,30 +17,21 @@ spec:
   output:
     to:
       kind: ImageStreamTag
-      name: label-studio:latest
+      name: label-studio:ubi_patched
   runPolicy: SerialLatestOnly
   source:
-    contextDir: /container/s2i
+    contextDir: /container/patch
     git:
       ref: main
       uri: https://github.com/redhat-na-ssa/demo-ocp-label-studio.git
     type: Git
   strategy:
-    sourceStrategy:
+    dockerStrategy:
       from:
         kind: ImageStreamTag
-        name: python:3.9-ubi8
-        namespace: openshift
-    type: Source
+        name: label-studio:ubi_latest
+    type: Docker
   triggers:
-  - generic:
-      secretReference:
-        name: serving-generic-webhook-secret
-    type: Generic
-  - github:
-      secretReference:
-        name: serving-github-webhook-secret
-    type: GitHub
   - imageChange: {}
     type: ImageChange
   - type: ConfigChange

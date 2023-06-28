@@ -8,8 +8,6 @@ metadata:
     app.kubernetes.io/instance: label-studio
     app.kubernetes.io/name: label-studio
     app.kubernetes.io/part-of: label-studio
-    app.openshift.io/runtime: python
-    app.openshift.io/runtime-version: 3.9-ubi8
 spec:
   port:
     targetPort: 8080-tcp
