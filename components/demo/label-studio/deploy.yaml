@@ -5,7 +5,7 @@ metadata:
   annotations:
     alpha.image.policy.openshift.io/resolve-names: '*'
     app.openshift.io/route-disabled: "false"
-    image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"label-studio:s2i","fieldPath":"spec.template.spec.containers[?(@.name==\"label-studio\")].image","pause":"false"}]'
+    image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"label-studio:s2i"},"fieldPath":"spec.template.spec.containers[?(@.name==\"label-studio\")].image","pause":"false"}]'
   labels:
     app: label-studio
     app.kubernetes.io/component: label-studio
