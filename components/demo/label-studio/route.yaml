@@ -1,16 +1,13 @@
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
-  annotations:
-    openshift.io/host.generated: 'true'
+  name: label-studio
   labels:
     app: label-studio
     app.kubernetes.io/component: label-studio
     app.kubernetes.io/instance: label-studio
     app.kubernetes.io/name: label-studio
     app.kubernetes.io/part-of: label-studio
-    app.openshift.io/runtime-version: latest
-  name: label-studio
 spec:
   port:
     targetPort: 8080-tcp

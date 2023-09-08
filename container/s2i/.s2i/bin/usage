@@ -1,24 +1,24 @@
 #!/bin/sh
 
-which lsb_release 2>&1 >/dev/null && lsb_release -ircd
-
-DISTRO=${$(cat /etc/*-release | grep ^ID= | grep -Po '".*?"' | tr -d '"'):-Unknown}
-[ $DISTRO =~ rhel* ] || DISTRO="non RHEL"
+DISTRO=`cat /etc/*-release | grep ^ID= | grep -Po '".*?"' | tr -d '"'`
+NAMESPACE=centos
+[[ $DISTRO =~ rhel* ]] && NAMESPACE=rhscl
 
 cat <<USAGE
+This is a S2I python-3.9 ${DISTRO} base image:
+There are multiple ways how to run the image, see documentation at:
+https://github.com/sclorg/s2i-python-container/blob/master/3.9/README.md
 
-This is a S2I image; ${DISTRO} base image:
 
-There are multiple ways to use this image, see documentation at:
-https://github.com/<url goes here>/
+What is Label Studio?
+Label Studio is an open source data labeling tool
+that supports multiple projects, users and data types in one platform.
 
-The default directory for installing sources is:
-'/opt/app-root/src'
+It allows you to do the following:
 
-WORKDIR and HOME is set to this directory as well.
-
-To learn more about S2I visit:
-- https://github.com/openshift/source-to-image
-- https://github.com/sclorg/container-common-scripts
-
+- Perform different types of labeling with many data formats.
+- Integrate Label Studio with machine learning models to
+  supply predictions for labels (pre-labels), or perform continuous
+  active learning.
+ 
 USAGE

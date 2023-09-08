@@ -18,9 +18,9 @@ ENV DJANGO_SETTINGS_MODULE=core.settings.label_studio \
 
 EXPOSE 8080
 
-LABEL name="LabelStudio" \
+LABEL name="Label Studio" \
   maintainer="TBD" \
-  vendor="Heartex" \
+  vendor="Human Signal" \
   summary="LabelStudio" \
   description="Label Studio is an open source data labeling tool."
 

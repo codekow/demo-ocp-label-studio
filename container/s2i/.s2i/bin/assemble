@@ -1,14 +1,23 @@
 #!/bin/sh
+set -e
 
-# insert secret code sause for OS based depends
-
-download_artifacts(){
-  echo "Downloading artifact..."
+usage(){
+  if [ "$1" == "-h" ]; then
+    exec "${STI_SCRIPTS_PATH}/usage"
+  fi
 }
 
-assemble_s2i_default(){
-  ${STI_SCRIPTS_PATH}/assemble
-}
+# Restore artifacts from the previous build (if they exist).
+# We set them here just for show, but you will need to set this up with your logic
+# according to the application directory that you chose.
 
-download_artifacts
-assemble_s2i_default
+
+# if [ "$(ls /tmp/artifacts/ 2>/dev/null)" ]; then
+#   echo "---> Restoring build artifacts..."
+#   mv /tmp/artifacts/* /opt/app-root/etc
+# fi
+
+# Install os based code dependencies here
+
+echo "Resume default assemble"
+${STI_SCRIPTS_PATH}/assemble

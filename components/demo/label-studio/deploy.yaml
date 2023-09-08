@@ -1,17 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  name: label-studio
   annotations:
     alpha.image.policy.openshift.io/resolve-names: '*'
     app.openshift.io/route-disabled: "false"
-    image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"label-studio:ubi_latest","fieldPath":"spec.template.spec.containers[?(@.name==\"label-studio\")].image","pause":"false"}]'
+    image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"label-studio:s2i"},"fieldPath":"spec.template.spec.containers[?(@.name==\"label-studio\")].image","pause":"false"}]'
   labels:
     app: label-studio
     app.kubernetes.io/component: label-studio
     app.kubernetes.io/instance: label-studio
     app.kubernetes.io/name: label-studio
     app.kubernetes.io/part-of: label-studio
-  name: label-studio
 spec:
   replicas: 1
   selector:
@@ -53,7 +53,7 @@ spec:
           value: "1"
         - name: POSTGRE_USER
           value: postgres
-        image: label-studio:ubi_latest
+        image: label-studio:s2i
         name: label-studio
         resources:
           limits:
@@ -63,12 +63,12 @@ spec:
         - containerPort: 8080
           protocol: TCP
         volumeMounts:
-        - mountPath: /label-studio/.local
+        - mountPath: /opt/app-root/src
           name: label-studio-data
-        - mountPath: /label-studio/data
-          name: label-studio-data
-          subPath: data
+          subPath: s2i
       volumes:
+      - name: empty
+        emptyDir: {}
       - name: label-studio-data
         persistentVolumeClaim:
           claimName: label-studio-data

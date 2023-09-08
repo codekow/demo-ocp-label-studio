@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    deployment.kubernetes.io/revision: "2"
     image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"postgresql:12","namespace":"openshift"},"fieldPath":"spec.template.spec.containers[?(@.name==\"postgresql\")].image","pause":"true"}]'
     template.alpha.openshift.io/wait-for-ready: "true"
   labels:
@@ -75,8 +74,8 @@ spec:
             memory: 512Mi
         volumeMounts:
         - mountPath: /var/lib/pgsql/data
-          name: label-studio-db-data
+          name: db-data
       volumes:
-      - name: label-studio-db-data
+      - name: db-data
         persistentVolumeClaim:
           claimName: label-studio-db

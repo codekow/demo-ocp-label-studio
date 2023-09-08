@@ -4,8 +4,11 @@ Explore and demo label-studio on OpenShift
 
 ## Usage
 
-
 ### Quick Start
+
+See Label [Studio Helm Chart](https://github.com/HumanSignal/charts) with [OpenShift Values](https://github.com/HumanSignal/charts/blob/master/heartex/label-studio/example-values/label-studio-on-openshift.yaml)
+
+### TL;DR Example
 
 ```
 # create project for label-studio
@@ -82,12 +85,15 @@ oc expose service \
   ```
 
 ## Links
-- [Review / To Do](REVIEW.md)
+
+- [Official Label Studio Helm Chart - Values for OpenShift](https://github.com/HumanSignal/charts/blob/master/heartex/label-studio/example-values/label-studio-on-openshift.yaml)
 - [GitHub - Label Studio](https://github.com/heartexlabs/label-studio)
 - [Demo: Label Studio on OpenShift](https://github.com/rh-intelligent-application-practice/labelstudio-openshift-deploy)
 - [atef23/labelstudio-openshift-deploy](https://github.com/atef23/labelstudio-openshift-deploy)
 - [opendatahub-io-contrib/label-studio](https://github.com/opendatahub-io-contrib/label-studio-integration) - NOT working
+- [Review / To Do](REVIEW.md)
 
 ## MLOps CoP Links
+
 - [Label Studio - Presentation](https://docs.google.com/presentation/d/1bH-JYQmxIkxlug6N6yDqojKDC7XVE7HD5uxyZ7VEO-s)
 - [Label Studio - Recording](https://drive.google.com/file/d/1USf9kzuAIjviqeB6f56c4SGIyMmXovkT/)
