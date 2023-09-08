@@ -6,7 +6,7 @@ Explore and demo label-studio on OpenShift
 
 ### Quick Start
 
-See Label [Studio Helm Chart](https://github.com/HumanSignal/charts) with [OpenShift Values](https://github.com/HumanSignal/charts/blob/master/heartex/label-studio/example-values/label-studio-on-openshift.yaml)
+See [Label Studio Helm Chart](https://github.com/HumanSignal/charts) with [OpenShift Values](https://github.com/HumanSignal/charts/blob/master/heartex/label-studio/example-values/label-studio-on-openshift.yaml)
 
 ### TL;DR Example
 
