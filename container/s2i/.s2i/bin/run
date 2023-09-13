@@ -1,8 +1,8 @@
 #!/bin/sh
-set -e
+# set -e
 
 usage(){
-  "${STI_SCRIPTS_PATH}/usage"
+  exec "${STI_SCRIPTS_PATH}/usage"
 }
 
 # fallback with sleep to debug your code
@@ -14,15 +14,17 @@ run_sleep(){
 
 # run normal s2i scripts
 run_s2i_default(){
-  ${STI_SCRIPTS_PATH}/run
+  /usr/libexec/s2i/run
 }
 
 run_s2i_override(){
   # kludge - could change entrypoint
-  exec label-studio
+  python custom.py || return
 }
 
 usage
+[ "${1}" == "-h" ] && exit 0
+
 run_s2i_override
 run_s2i_default
 run_sleep

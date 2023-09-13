@@ -1,10 +1,9 @@
 #!/bin/sh
 
-DISTRO=`cat /etc/*-release | grep ^ID= | grep -Po '".*?"' | tr -d '"'`
-NAMESPACE=centos
-[[ $DISTRO =~ rhel* ]] && NAMESPACE=rhscl
+cat /etc/*-release
 
 cat <<USAGE
+
 This is a S2I python-3.9 ${DISTRO} base image:
 There are multiple ways how to run the image, see documentation at:
 https://github.com/sclorg/s2i-python-container/blob/master/3.9/README.md
