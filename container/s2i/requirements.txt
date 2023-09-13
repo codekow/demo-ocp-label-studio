@@ -1,2 +1,4 @@
 label-studio
 psycopg2-binary
+uwsgi
+uwsgitop
