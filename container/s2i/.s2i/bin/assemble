@@ -1,10 +1,6 @@
 #!/bin/sh
 set -e
 
-usage(){
-  exec "${STI_SCRIPTS_PATH}/usage"
-}
-
 restore_artifacts(){
   # Restore artifacts from the previous build (if they exist).
   # We set them here just for show, but you will need to set this up with your logic
@@ -22,10 +18,10 @@ assemble_s2i_override(){
 }
 
 assemble_s2i_default(){
-  echo "Resume default assemble"
+  echo "Running default assemble"
   /usr/libexec/s2i/assemble
 }
 
-usage
+restore_artifacts
 assemble_s2i_override
 assemble_s2i_default
