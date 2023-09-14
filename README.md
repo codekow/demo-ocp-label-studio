@@ -104,6 +104,7 @@ oc expose service \
 
 - [Label Studio - Getting Started](https://labelstud.io/guide/start.html)
 - [Label Studio - Import data (cli)](https://labelstud.io/guide/tasks#Import-data-from-the-command-line)
+- [Label Studio - Import Conversion Tool](https://github.com/HumanSignal/label-studio-converter)
 - [Official Label Studio Helm Chart - Values for OpenShift](https://github.com/HumanSignal/charts/blob/master/heartex/label-studio/example-values/label-studio-on-openshift.yaml)
 - [GitHub - Label Studio](https://github.com/heartexlabs/label-studio)
 - [Demo: Label Studio on OpenShift](https://github.com/rh-intelligent-application-practice/labelstudio-openshift-deploy)
