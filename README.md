@@ -18,6 +18,12 @@ local_demo
 openshift_demo
 ```
 
+Import local files via `files.txt`
+
+```
+scripts/serve_local_files.sh path_to_files/*.png
+```
+
 ### TL;DR Example
 
 ```
@@ -97,6 +103,7 @@ oc expose service \
 ## Links
 
 - [Label Studio - Getting Started](https://labelstud.io/guide/start.html)
+- [Label Studio - Import data (cli)](https://labelstud.io/guide/tasks#Import-data-from-the-command-line)
 - [Official Label Studio Helm Chart - Values for OpenShift](https://github.com/HumanSignal/charts/blob/master/heartex/label-studio/example-values/label-studio-on-openshift.yaml)
 - [GitHub - Label Studio](https://github.com/heartexlabs/label-studio)
 - [Demo: Label Studio on OpenShift](https://github.com/rh-intelligent-application-practice/labelstudio-openshift-deploy)
