@@ -1,6 +1,7 @@
 # custom excludes
 data/
 scratch/
+files.txt
 
 # swap files
 *~
