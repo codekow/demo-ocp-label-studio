@@ -34,7 +34,7 @@ check_venv(){
 }
 
 install_reqs(){
-  pip install -qr requirements.txt
+  pip install -r requirements.txt
 }
 
 print_info(){
@@ -53,9 +53,33 @@ openshift_demo(){
   oc apply -k components/demo
 }
 
+setup_app(){
+  APP_USER=user@localhost
+  APP_PASS=password
+  
+  export LABEL_STUDIO_BASE_DATA_DIR=$(pwd)/scratch/label-studio
+  export LABEL_STUDIO_LOCAL_FILES_SERVING_ENABLED=true
+  export LABEL_STUDIO_LOCAL_FILES_DOCUMENT_ROOT=$(pwd)/scratch/files
+  
+  [ -e "${LABEL_STUDIO_BASE_DATA_DIR}" ] || mkdir -p "${LABEL_STUDIO_BASE_DATA_DIR}"
+  [ -e "${LABEL_STUDIO_LOCAL_FILES_DOCUMENT_ROOT}" ] || mkdir -p "${LABEL_STUDIO_LOCAL_FILES_DOCUMENT_ROOT}"
+
+  # initalize app config
+  [ ! -e "${LABEL_STUDIO_BASE_DATA_DIR}/label_studio.sqlite3" ] && \
+    label-studio init --username "${APP_USER}" --password "${APP_PASS}"
+  
+  label-studio reset_password --username "${APP_USER}" --password "${APP_PASS}"
+  echo "APP_USER: ${APP_USER}"
+  echo "APP_PASS: ${APP_PASS}"
+  sleep 3
+
+  label-studio start
+}
+
 local_demo(){
   check_venv
   install_reqs
+  setup_app
   print_info
 }
 
