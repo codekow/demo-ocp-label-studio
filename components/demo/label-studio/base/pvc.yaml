@@ -1,8 +1,6 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  labels:
-    app: label-studio
   name: label-studio-data
 spec:
   accessModes:

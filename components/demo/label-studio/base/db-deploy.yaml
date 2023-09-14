@@ -4,11 +4,6 @@ metadata:
   annotations:
     image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"postgresql:12","namespace":"openshift"},"fieldPath":"spec.template.spec.containers[?(@.name==\"postgresql\")].image","pause":"true"}]'
     template.alpha.openshift.io/wait-for-ready: "true"
-  labels:
-    app: label-studio
-    app.kubernetes.io/part-of: label-studio
-    template: postgresql-persistent-template
-    template.openshift.io/template-instance-owner: 84530ce1-22cb-411e-b4f1-d297468b0153
   name: label-studio-db
 spec:
   replicas: 1

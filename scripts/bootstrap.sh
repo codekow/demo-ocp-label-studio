@@ -5,8 +5,9 @@ usage(){
 echo "
 You can run individual functions!
 
-example:
-  setup_demo
+options:
+  local_demo
+  openshift_demo
 "
 }
 
@@ -48,10 +49,14 @@ print_info(){
   "
 }
 
-setup_demo(){
+openshift_demo(){
+  oc apply -k components/demo
+}
+
+local_demo(){
   check_venv
   install_reqs
   print_info
 }
 
-is_sourced && usage || setup_demo
+is_sourced && usage || local_demo

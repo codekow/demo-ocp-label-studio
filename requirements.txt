@@ -1,1 +1,1 @@
-container/requirements.txt
+container/s2i/requirements.txt
