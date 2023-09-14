@@ -24,6 +24,33 @@ Import local files via `files.txt`
 scripts/serve_local_files.sh path_to_files/*.png
 ```
 
+Import from YOLO format to label studio
+
+```
+mkdir -p scratch/example
+cd scratch/example
+
+unzip yolo.zip -d example
+
+label-studio-converter import yolo \
+  -i example/ \
+  -o ls-tasks.json \
+  --image-ext .jpg \
+  --image-root-url http://localhost:8081
+
+cd ../..
+
+scripts/serve_local_files.sh scratch/example/images
+```
+
+Create a Label Studio Project via cli
+
+```
+label-studio init Example \
+  --initial-project-description "An Example Project" \
+  --label-config ls-tasks.label_config.xml
+```
+
 ### TL;DR Example
 
 ```
