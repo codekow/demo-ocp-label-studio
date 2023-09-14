@@ -5,12 +5,6 @@ metadata:
   annotations:
     app.openshift.io/vcs-ref: openshift
     app.openshift.io/vcs-uri: https://github.com/redhat-na-ssa/demo-ocp-label-studio.git
-  labels:
-    app: label-studio
-    app.kubernetes.io/component: label-studio
-    app.kubernetes.io/instance: label-studio
-    app.kubernetes.io/name: label-studio
-    app.kubernetes.io/part-of: label-studio
 spec:
   lookupPolicy:
     local: false
