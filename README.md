@@ -96,6 +96,7 @@ oc expose service \
 
 ## Links
 
+- [Label Studio - Getting Started](https://labelstud.io/guide/start.html)
 - [Official Label Studio Helm Chart - Values for OpenShift](https://github.com/HumanSignal/charts/blob/master/heartex/label-studio/example-values/label-studio-on-openshift.yaml)
 - [GitHub - Label Studio](https://github.com/heartexlabs/label-studio)
 - [Demo: Label Studio on OpenShift](https://github.com/rh-intelligent-application-practice/labelstudio-openshift-deploy)
