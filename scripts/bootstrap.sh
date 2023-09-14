@@ -59,7 +59,7 @@ setup_app(){
   
   export LABEL_STUDIO_BASE_DATA_DIR=$(pwd)/scratch/label-studio
   export LABEL_STUDIO_LOCAL_FILES_SERVING_ENABLED=true
-  export LABEL_STUDIO_LOCAL_FILES_DOCUMENT_ROOT=$(pwd)/scratch/files
+  export LABEL_STUDIO_LOCAL_FILES_DOCUMENT_ROOT=$(pwd)/scratch
   
   [ -e "${LABEL_STUDIO_BASE_DATA_DIR}" ] || mkdir -p "${LABEL_STUDIO_BASE_DATA_DIR}"
   [ -e "${LABEL_STUDIO_LOCAL_FILES_DOCUMENT_ROOT}" ] || mkdir -p "${LABEL_STUDIO_LOCAL_FILES_DOCUMENT_ROOT}"
