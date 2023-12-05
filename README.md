@@ -88,7 +88,7 @@ New Project for testing
 oc new-project label-studio-source
 ```
 
-Source to Image (s2i): strategy `docker` to [patch](container/patch) public image
+Build strategy `docker` to [patch](container/patch) public image
 
 ```
 APP_NAME=label-studio-patch
@@ -98,7 +98,7 @@ oc new-app https://github.com/redhat-na-ssa/demo-ocp-label-studio.git \
   --context-dir container/patch
 ```
 
-Source to Image (s2i): strategy `source`
+Build strategy `source` (s2i)
 
 ```
 APP_NAME=label-studio-s2i-source
@@ -108,7 +108,7 @@ oc new-app https://github.com/redhat-na-ssa/demo-ocp-label-studio.git \
   --context-dir container/s2i
 ```
 
-Source to Image (s2i): strategy `docker`
+Build strategy `docker`
 
 ```
 APP_NAME=label-studio-s2i-docker
@@ -118,14 +118,18 @@ oc new-app https://github.com/redhat-na-ssa/demo-ocp-label-studio.git \
   --context-dir container/s2i
 ```
 
-Expose via route in OpenShift (repeat as needed)
+Expose via route, w/ https, in OpenShift (repeat as needed)
 
 ```
+# create route
 oc expose service \
+  "${APP_NAME}"
+
+# update route to use tls
+oc patch route \
   "${APP_NAME}" \
-  --port 8080 \
-  --overrides='{"spec":{"tls":{"termination":"edge"}}}'
-  ```
+  --patch='{"spec":{"tls":{"termination":"edge"}}}'
+```
 
 ## Links
 
